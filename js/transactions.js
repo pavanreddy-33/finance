@@ -1,14 +1,9 @@
-// transactions.js
-// Handles Transactions page: load data, filters, sort, pagination, CRUD
-
-// App state (page-scoped)
 let transactions = [];
 let working = [];
 let currentPage = 1;
 let sortState = { field: null, dir: null };
 let filters = { from: null, to: null, category: "" };
 
-// Elements (only query if present)
 const els = {
   navTransactions: document.getElementById("nav-transactions"),
   navDashboard: document.getElementById("nav-dashboard"),
@@ -44,13 +39,28 @@ const els = {
   modalCancel: document.getElementById("modal-cancel"),
 };
 
+function loadFromLocal() {
+  const saved = localStorage.getItem(FMUtils.STORAGE_KEY);
+  if (!saved) return null;
+  try {
+    return JSON.parse(saved);
+  } catch {
+    return null;
+  }
+}
+
 if (!els.pageTransactions) {
-  // Not on transactions page — nothing to do
 } else {
-  // Initialize
   (async function init() {
-    transactions = await FMUtils.loadSeedData();
-    // ensure numbers
+    let saved = loadFromLocal();
+
+    if (saved && Array.isArray(saved)) {
+      transactions = saved;
+    } else {
+      transactions = await FMUtils.loadSeedData();
+      FMUtils.saveToLocal(transactions);
+    }
+
     transactions = transactions.map((t) => ({
       ...t,
       amount: Number(t.amount),
@@ -58,12 +68,12 @@ if (!els.pageTransactions) {
     transactions.sort(
       (a, b) => FMUtils.parseDate(b.date) - FMUtils.parseDate(a.date)
     );
+
     applyAll();
     attachEvents();
   })();
 }
 
-// ---------- Renderers & helpers ----------
 function populateCategoryOptions() {
   if (!els.filterCategory) return;
   const cats = Array.from(
@@ -138,7 +148,6 @@ function renderTable() {
     updatePaginationButtons(start, total);
   }
 
-  // page numbers
   if (els.pageNumbers) {
     els.pageNumbers.innerHTML = "";
     for (let i = 1; i <= pages; i++) {
@@ -155,10 +164,8 @@ function renderTable() {
 }
 
 function applyAll() {
-  // recalc summary using full transactions
   updateSummaryCards(transactions);
 
-  // working copy
   working = transactions.slice();
 
   if (filters.from)
@@ -217,7 +224,6 @@ function updateSortIcons() {
   });
 }
 
-// Modal / CRUD
 function openModal(tx) {
   if (!els.modal) return;
   els.modal.classList.remove("hidden");
@@ -276,7 +282,6 @@ function deleteTx(id) {
   applyAll();
 }
 
-// Attach events
 function attachEvents() {
   if (els.addBtn) els.addBtn.addEventListener("click", () => openModal(null));
   if (els.modalCancel) els.modalCancel.addEventListener("click", closeModal);

@@ -1,6 +1,3 @@
-// dashboard.js
-// Build charts & dashboard summaries, reads from same localStorage seed
-
 let transactions = [];
 let barChart, pieChart, lineChart;
 
@@ -14,29 +11,42 @@ const els = {
   insAvgSaving: document.getElementById("ins-avg-saving"),
 };
 
-// initialize
+function loadFromLocal() {
+  const saved = localStorage.getItem(FMUtils.STORAGE_KEY);
+  if (!saved) return null;
+  try {
+    return JSON.parse(saved);
+  } catch (e) {
+    console.error("Failed to parse local data:", e);
+    return null;
+  }
+}
+
 if (document.getElementById("page-dashboard")) {
   (async function init() {
-    transactions = await FMUtils.loadSeedData();
+    const saved = loadFromLocal();
+
+    if (saved && Array.isArray(saved)) {
+      transactions = saved;
+    } else {
+      transactions = await FMUtils.loadSeedData();
+      FMUtils.saveToLocal(transactions);
+    }
+
     transactions = transactions.map((t) => ({
       ...t,
       amount: Number(t.amount),
     }));
     renderAll();
-    // redraw charts on resize
-    window.addEventListener("resize", () => {
-      clearTimeout(window._fmResize);
-      window._fmResize = setTimeout(() => {
-        renderCharts();
-      }, 250);
-    });
-    // listen for storage changes (if user modifies transactions in other tab)
+
+    // update when transactions page writes to local storage
     window.addEventListener("storage", (e) => {
       if (e.key === FMUtils.STORAGE_KEY) {
-        (async () => {
-          transactions = await FMUtils.loadSeedData();
+        const updated = loadFromLocal();
+        if (updated) {
+          transactions = updated;
           renderAll();
-        })();
+        }
       }
     });
   })();

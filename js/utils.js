@@ -1,10 +1,7 @@
-// utils.js - shared helpers used by transactions.js and dashboard.js
-
-const transactionURL = "./data/transactions.json";
+const transactionURL = "../data/transactions.json";
 const STORAGE_KEY = "transactions_data";
 const PAGE_SIZE = 10;
 
-// Safe DOM getter
 function $id(id) {
   return document.getElementById(id);
 }
@@ -64,7 +61,6 @@ function getMonthBuckets(data) {
   return buckets;
 }
 
-// Export for ES module style if needed (but files are plain scripts)
 window.FMUtils = {
   fmt,
   parseDate,
@@ -74,4 +70,5 @@ window.FMUtils = {
   getMonthKey,
   getMonthBuckets,
   PAGE_SIZE,
+  STORAGE_KEY,
 };
