@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Transactions — Finance Manager</title>
+
+    <!-- compiled CSS (after you run sass) -->
+    <link rel="stylesheet" href="scss/index.css" />
+
+    <!-- Chart.js not needed on transactions page, but safe to include if you prefer -->
+    <script defer src="js/utils.js"></script>
+    <script defer src="js/transactions.js"></script>
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <h1 class="heading">Finance Management</h1>
+        <nav style="font-weight: 600">
+          <a href="transactions.html"
+            ><button class="nav-btn active" id="nav-transactions">
+              Transactions
+            </button></a
+          >
+          <a href="dashboard.html"
+            ><button class="nav-btn" id="nav-dashboard">Dashboard</button></a
+          >
+          <button id="reset-seed" class="reset-btn">Reset data</button>
+        </nav>
+      </header>
+
+      <main>
+        <section id="page-transactions" class="page">
+          <section class="summary-cards">
+            <div class="card">
+              Total Income<br /><strong id="total-income">0</strong>
+            </div>
+            <div class="card">
+              Total Expense<br /><strong id="total-expense">0</strong>
+            </div>
+            <div class="card">
+              Net Balance<br /><strong id="net-balance">0</strong>
+            </div>
+            <div class="card">
+              Expense / Income<br /><strong id="ratio">0%</strong>
+            </div>
+          </section>
+
+          <section class="action-bar">
+            <button id="add-transaction" class="primary">
+              + Add Transaction
+            </button>
+
+            <div class="filters">
+              <label
+                ><p>Date From</p>
+                <input type="date" id="filter-from"
+              /></label>
+              <label
+                ><p>Date To</p>
+                <input type="date" id="filter-to"
+              /></label>
+              <label
+                ><p>Category</p>
+                <select id="filter-category">
+                  <option value="">All</option>
+                </select>
+              </label>
+              <div class="filter-buttons">
+                <button id="apply-filters">Apply</button>
+                <button id="reset-filters">Reset</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="table-wrap">
+            <table id="transactions-table">
+              <thead>
+                <tr>
+                  <th data-sort="date">
+                    Date <span class="sort-icon" id="sort-date">⬍</span>
+                  </th>
+                  <th>Description</th>
+                  <th>Category</th>
+                  <th>Type</th>
+                  <th data-sort="amount">
+                    Amount <span class="sort-icon" id="sort-amount">⬍</span>
+                  </th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+
+            <div class="pagination">
+              <button id="prev-page">❮</button>
+              <div id="page-numbers"></div>
+              <button id="next-page">❯</button>
+            </div>
+
+            <p id="no-data">No transactions yet. Add one!</p>
+          </section>
+        </section>
+      </main>
+
+      <!-- Modal -->
+      <div id="modal" class="modal hidden">
+        <div class="modal-content">
+          <h2 id="modal-title">Add Transaction</h2>
+          <form id="tx-form">
+            <input type="hidden" id="tx-id" />
+            <label>Date <input type="date" id="tx-date" required /></label>
+            <label
+              >Description <input type="text" id="tx-desc" required
+            /></label>
+            <label
+              >Category <input list="categories" id="tx-category" /><datalist
+                id="categories"
+              ></datalist
+            ></label>
+            <label
+              >Type
+              <select id="tx-type">
+                <option value="Expense">Expense</option>
+                <option value="Credit">Credit</option>
+              </select>
+            </label>
+            <label
+              >Amount <input type="number" step="0.01" id="tx-amount" required
+            /></label>
+
+            <div class="modal-actions">
+              <button type="submit" class="primary-btn">Save</button>
+              <button type="button" id="modal-cancel">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

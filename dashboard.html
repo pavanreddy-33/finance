@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard — Finance Manager</title>
+
+    <link rel="stylesheet" href="scss/index.css" />
+
+    <!-- Use Cloudflare CDN for Chart.js to avoid tracking-prevention messages in some browsers -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+    <script defer src="js/utils.js"></script>
+    <script defer src="js/dashboard.js"></script>
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <h1 class="heading">Finance Management</h1>
+        <nav style="font-weight: 600">
+          <a href="transactions.html"
+            ><button class="nav-btn" id="nav-transactions">
+              Transactions
+            </button></a
+          >
+          <a href="dashboard.html"
+            ><button class="nav-btn active" id="nav-dashboard">
+              Dashboard
+            </button></a
+          >
+          <a href="transactions.html"
+            ><button class="reset-btn" id="reset-seed">Reset data</button></a
+          >
+        </nav>
+      </header>
+
+      <main>
+        <section id="page-dashboard" class="page">
+          <section class="summary-cards">
+            <div class="card">
+              Total Income<br /><strong id="d-total-income">0</strong>
+            </div>
+            <div class="card">
+              Total Expense<br /><strong id="d-total-expense">0</strong>
+            </div>
+            <div class="card">
+              Net Balance<br /><strong id="d-net-balance">0</strong>
+            </div>
+            <div class="card">
+              Avg Monthly Savings<br /><strong id="d-avg-savings">0</strong>
+            </div>
+          </section>
+
+          <section class="summary-cards-insights">
+            <div class="card">
+              Highest Expense: <strong id="highest-category">-</strong>
+            </div>
+            <div class="card">
+              Avg Savings: <strong id="ins-avg-saving">-</strong>
+            </div>
+            <div class="card">
+              Total Transactions: <strong id="ins-total-trans">0</strong>
+            </div>
+          </section>
+
+          <section class="charts">
+            <div class="charts-card">
+              <h3>Monthly Income vs Expense</h3>
+              <div class="chart-container"><canvas id="barChart"></canvas></div>
+            </div>
+
+            <div class="charts-row">
+              <div class="charts-card">
+                <h3>Expense by Category</h3>
+                <div class="chart-container">
+                  <canvas id="pieChart"></canvas>
+                </div>
+              </div>
+              <div class="charts-card">
+                <h3>Balance Over Time</h3>
+                <div class="chart-container">
+                  <canvas id="lineChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,827 @@
+@use "sass:color";
+
+$bg: #f6f7fb;
+$card: #fff;
+$accent: #2563eb;
+$danger: #dc2626;
+$muted: #e5e7eb;
+$active: green;
+$primary-text: #0f172a;
+$button-bg: #2563eb;
+$secondary: #e5e7eb;
+$secondary-hover: #d1d5db;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, sans-serif, Arial;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: $bg;
+  color: $primary-text;
+}
+
+.app {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.topbar {
+  background: #f0f2f5;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  padding: 2rem;
+  color: $primary-text;
+  border-radius: 0.8rem;
+}
+
+.heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+
+  &:hover {
+    color: color.scale($primary-text, $lightness: -20%);
+    transition: color 0.3s ease;
+  }
+}
+
+p {
+  font-weight: 500;
+}
+
+.nav-btn {
+  background: transparent;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: 8px;
+  color: $primary-text;
+
+  &.active {
+    background: $button-bg;
+    font-weight: bold;
+    color: $card;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: color.scale(#2563eb, $lightness: -20%);
+      transform: scaleY(1.1);
+    }
+  }
+}
+
+.reset-btn {
+  background: $danger;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: $card;
+  margin-left: 1rem;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background: color.scale($danger, $lightness: -20%);
+    transform: scaleY(1.1);
+  }
+}
+
+.header-insights {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+nav button {
+  background: transparent;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+}
+
+.summary-cards {
+  background: #f0f2f5;
+  border: 1px solid #e5e7eb;
+  padding: 20px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.card {
+  background: $card;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(2, 6, 23, 0.06);
+  flex: 1;
+  margin-bottom: 0;
+  $shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  $shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.12);
+  $border: 1px solid #e5e7eb;
+
+  & strong {
+    font-size: 1.15rem;
+  }
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(2, 6, 23, 0.1);
+    transform: translateY(-3px) scale(0.99);
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+  }
+}
+
+.action-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  background: #f0f2f5;
+  border: 1px solid #e5e7eb;
+  padding: 12px;
+  border-radius: 10px;
+
+  & button {
+    font-size: 0.9rem;
+    margin-right: 2rem;
+  }
+}
+.primary {
+  background: $accent;
+  color: $card;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  &:hover {
+    background: color.scale($accent, $lightness: -20%);
+    transform: translateY(-0.2rem);
+  }
+}
+.button-muted {
+  background: transparent;
+  border: 1px solid #ddd;
+  padding: 8px;
+  border-radius: 6px;
+}
+.filters {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+
+  & label {
+    font-size: 0.9rem;
+    color: $primary-text;
+  }
+
+  & select {
+    padding: 6px 8px;
+    border-radius: 6px;
+    border: 1px solid $card;
+    color: $primary-text;
+    cursor: pointer;
+
+    &:hover {
+      border-color: color.scale($card, $lightness: -20%);
+    }
+  }
+
+  & input {
+    padding: 6px 8px;
+    border-radius: 6px;
+    border: 1px solid $muted;
+  }
+
+  & .filter-group {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+  }
+
+  & .filter-group label {
+    margin: 0;
+  }
+
+  & button {
+    padding: 6px 10px;
+    background-color: $accent;
+    border: none;
+    color: $card;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: color.scale($accent, $lightness: -20%);
+      transform: translateY(-0.2rem);
+    }
+
+    &:first-child {
+      margin-left: 1rem;
+    }
+
+    &:last-child {
+      background-color: $danger;
+
+      &:hover {
+        background: color.scale($danger, $lightness: -20%);
+        transform: translateY(-0.2rem);
+      }
+    }
+  }
+}
+
+.table-wrap {
+  background: $card;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba($primary-text, 0.06);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+tbody td {
+  padding: 10px;
+  border-bottom: 1px solid #f2f4f7;
+}
+
+.sort-icon {
+  cursor: pointer;
+  margin-left: 6px;
+}
+
+.pagination {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+
+  & button {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+  }
+}
+
+.dis {
+  cursor: not-allowed;
+  background-color: $muted;
+  color: white;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.delete {
+  background: $danger;
+  color: $card;
+  border: none;
+  padding: 8px 12px;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background: color.scale($danger, $lightness: -20%);
+    transform: translateY(-0.2rem);
+  }
+}
+
+.edit {
+  background: $active;
+  color: $card;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  &:hover {
+    background: color.scale($active, $lightness: -20%);
+    transform: translateY(-0.2rem);
+  }
+}
+
+.primary-btn {
+  background: $active;
+  color: $card;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    background: color.scale($accent, $lightness: -20%);
+    transform: translateY(-0.2rem);
+  }
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba($primary-text, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 35px rgba($primary-text, 0.25);
+  animation: popup 0.5s ease-in-out;
+
+  &-content {
+    background: white;
+    padding: 18px;
+    border-radius: 10px;
+    width: 420px;
+
+    & label {
+      display: block;
+      margin-bottom: 8px;
+    }
+  }
+
+  &-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    margin-top: 10px;
+
+    & button {
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+
+      &:last-child {
+        background: $danger;
+        color: $card;
+      }
+    }
+  }
+}
+
+#no-data {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+#modal-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.modal-content input,
+.modal-content select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+@keyframes popup {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.filters {
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 0.8rem;
+  margin-left: 1rem;
+}
+
+.filter-buttons button {
+  padding: 8px 14px;
+}
+
+.charts {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.charts .chart-container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  position: relative;
+}
+
+.charts-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.chart-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .charts .chart-container {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+.summary-cards-insights {
+  background-color: $muted;
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    padding: 1rem;
+  }
+
+  table {
+    font-size: 0.95rem;
+  }
+
+  .charts-row {
+    grid-template-columns: 1fr;
+  }
+  .charts-card {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .chart-container {
+    height: 50vh;
+    min-width: 100%;
+  }
+
+  .filters {
+    gap: 1rem;
+    align-items: flex-end;
+  }
+
+  .filter-buttons {
+    display: flex;
+    gap: 0.8rem;
+    margin-left: 1rem;
+  }
+
+  .filter-buttons button {
+    padding: 8px 14px;
+  }
+}
+
+@media (max-width: 992px) {
+  .heading {
+    font-size: 1.8rem;
+  }
+
+  .summary-cards {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .action-bar {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .filters {
+    flex-direction: column;
+
+    & p {
+      margin-bottom: 0.3rem;
+    }
+  }
+  .charts-row {
+    grid-template-columns: 1fr;
+  }
+  .charts-card {
+    max-width: 100%;
+  }
+
+  .chart-container {
+    height: 50vh;
+    min-width: 100%;
+  }
+
+  .filters label,
+  .filters select,
+  .filters input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .heading {
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  nav {
+    width: 100%;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  nav button {
+    font-size: 1rem;
+  }
+
+  .summary-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .primary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .action-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+
+  /* Add Transaction button */
+  .action-bar #add-transaction {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  /* FILTERS CONTAINER */
+  .filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 15px;
+    width: 100%;
+    margin-top: 1.2rem;
+  }
+
+  /* Each label block */
+  .filters label {
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+
+    & p {
+      align-self: flex-start;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .filters input,
+  .filters select {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  /* Filter buttons take one full row */
+  .filter-buttons {
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 5px;
+  }
+
+  .filter-buttons button {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  .summary-cards-insights {
+    flex-direction: column;
+  }
+
+  .charts-row {
+    grid-template-columns: 1fr;
+  }
+
+  .charts-card {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .chart-container {
+    height: 50vh;
+    min-width: 100%;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+  }
+
+  .edit,
+  .delete {
+    padding: 6px 8px;
+    font-size: 0.8rem;
+    margin-bottom: 3px;
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    padding: 0.5rem;
+    text-align: center;
+  }
+
+  nav {
+    font-size: 1.5rem;
+  }
+  .topbar {
+    align-items: center;
+    text-align: center;
+  }
+
+  .heading {
+    font-size: 2rem;
+  }
+
+  .nav-btn {
+    padding: 6px 8px;
+    font-size: 0.7rem;
+    margin-right: 5px;
+  }
+
+  .reset-btn {
+    margin-left: 0;
+    padding: 6px 8px;
+    font-size: 0.7rem;
+  }
+
+  .add-transaction-btn {
+    width: 100%;
+  }
+  .modal {
+    width: 95%;
+  }
+
+  .cards {
+    padding: 12px;
+  }
+
+  .table-wrap {
+    padding: 8px;
+    overflow-x: auto;
+
+    table {
+      width: 600px;
+    }
+  }
+
+  .edit,
+  .delete {
+    padding: 6px 8px;
+    font-size: 0.8rem;
+    margin-bottom: 3px;
+  }
+
+  .pagination {
+    align-items: center;
+  }
+
+  .filters label,
+  .filters select,
+  .filters input {
+    width: 100%;
+  }
+
+  .chart-container {
+    height: 40vh;
+    min-width: 100%;
+  }
+
+  .action-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  #add-transaction {
+    width: 100%;
+    padding: 14px;
+    font-size: 15px;
+  }
+
+  .filters {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .filters label {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+  }
+
+  .filters input,
+  .filters select {
+    width: 90%;
+    padding: 10px 12px;
+    font-size: 15px;
+  }
+
+  .filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .filter-buttons button {
+    padding: 10px 18px;
+    font-size: 15px;
+    width: auto;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+
+    & table {
+      width: 500px;
+    }
+  }
+
+  tr th {
+    padding: 6px;
+    width: 100%;
+  }
+
+  tr {
+    td {
+      padding: 8px;
+    }
+  }
+}
+
+@media (max-width: 430px) {
+  .modal-content {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .heading {
+    font-size: 1.5rem;
+  }
+}

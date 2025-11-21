@@ -1,0 +1,402 @@
+[
+  {
+    "id": 1,
+    "date": "2025-10-01",
+    "description": "Grocery shopping",
+    "category": "Food",
+    "type": "Expense",
+    "amount": 45.6
+  },
+  {
+    "id": 2,
+    "date": "2025-10-05",
+    "description": "Salary",
+    "category": "Salary",
+    "type": "Credit",
+    "amount": 3000
+  },
+  {
+    "id": 3,
+    "date": "2025-10-06",
+    "description": "Electricity Bill",
+    "category": "Bills",
+    "type": "Expense",
+    "amount": 90
+  },
+  {
+    "id": 4,
+    "date": "2025-08-30",
+    "description": "Income from side job",
+    "category": "Salary",
+    "type": "Credit",
+    "amount": 1000
+  },
+  {
+    "id": 5,
+    "date": "2025-09-03",
+    "description": "Petrol refill",
+    "category": "Transport",
+    "type": "Expense",
+    "amount": 54.2
+  },
+  {
+    "id": 6,
+    "date": "2025-09-04",
+    "description": "Online course fee",
+    "category": "Education",
+    "type": "Expense",
+    "amount": 120
+  },
+  {
+    "id": 7,
+    "date": "2025-09-05",
+    "description": "Freelance project payment",
+    "category": "Freelance",
+    "type": "Credit",
+    "amount": 450
+  },
+  {
+    "id": 8,
+    "date": "2025-09-06",
+    "description": "Groceries",
+    "category": "Food",
+    "type": "Expense",
+    "amount": 40.5
+  },
+  {
+    "id": 9,
+    "date": "2025-09-08",
+    "description": "Monthly rent",
+    "category": "Bills",
+    "type": "Expense",
+    "amount": 900
+  },
+  {
+    "id": 10,
+    "date": "2025-09-10",
+    "description": "Electricity Bill",
+    "category": "Bills",
+    "type": "Expense",
+    "amount": 88.9
+  },
+  {
+    "id": 11,
+    "date": "2025-09-11",
+    "description": "Internet Bill",
+    "category": "Bills",
+    "type": "Expense",
+    "amount": 35
+  },
+  {
+    "id": 12,
+    "date": "2025-09-13",
+    "description": "Movie tickets",
+    "category": "Entertainment",
+    "type": "Expense",
+    "amount": 18
+  },
+  {
+    "id": 13,
+    "date": "2025-09-14",
+    "description": "Coffee shop",
+    "category": "Food",
+    "type": "Expense",
+    "amount": 9.75
+  },
+  {
+    "id": 14,
+    "date": "2025-09-15",
+    "description": "Gym membership",
+    "category": "Health",
+    "type": "Expense",
+    "amount": 55
+  },
+  {
+    "id": 15,
+    "date": "2025-09-16",
+    "description": "Phone recharge",
+    "category": "Bills",
+    "type": "Expense",
+    "amount": 15
+  },
+  {
+    "id": 16,
+    "date": "2025-09-18",
+    "description": "Online shopping",
+    "category": "Shopping",
+    "type": "Expense",
+    "amount": 78.9
+  },
+  {
+    "id": 17,
+    "date": "2025-09-19",
+    "description": "Taxi ride",
+    "category": "Transport",
+    "type": "Expense",
+    "amount": 12.6
+  },
+  {
+    "id": 18,
+    "date": "2025-09-20",
+    "description": "Bonus credit",
+    "category": "Salary",
+    "type": "Credit",
+    "amount": 300
+  },
+  {
+    "id": 19,
+    "date": "2025-09-22",
+    "description": "Snacks",
+    "category": "Food",
+    "type": "Expense",
+    "amount": 6.2
+  },
+  {
+    "id": 20,
+    "date": "2025-09-24",
+    "description": "Laundry",
+    "category": "Home",
+    "type": "Expense",
+    "amount": 22
+  },
+  {
+    "id": 21,
+    "date": "2025-09-25",
+    "description": "Netflix subscription",
+    "category": "Entertainment",
+    "type": "Expense",
+    "amount": 12.99
+  },
+  {
+    "id": 22,
+    "date": "2025-09-27",
+    "description": "Car service",
+    "category": "Transport",
+    "type": "Expense",
+    "amount": 210
+  },
+  {
+    "id": 23,
+    "date": "2025-09-29",
+    "description": "Grocery shopping",
+    "category": "Food",
+    "type": "Expense",
+    "amount": 48.7
+  },
+  {
+    "id": 24,
+    "date": "2025-10-02",
+    "description": "Restaurant lunch",
+    "category": "Food",
+    "type": "Expense",
+    "amount": 27.3
+  },
+  {
+    "id": 25,
+    "date": "2025-10-04",
+    "description": "Pharmacy purchase",
+    "category": "Health",
+    "type": "Expense",
+    "amount": 19.4
+  },
+  {
+    "id": 26,
+    "date": "2025-10-07",
+    "description": "Gift shopping",
+    "category": "Shopping",
+    "type": "Expense",
+    "amount": 55.2
+  },
+  {
+    "id": 27,
+    "date": "2025-10-08",
+    "description": "Fuel refill",
+    "category": "Transport",
+    "type": "Expense",
+    "amount": 50
+  },
+  {
+    "id": 28,
+    "date": "2025-10-10",
+    "description": "Savings deposit",
+    "category": "Savings",
+    "type": "Credit",
+    "amount": 200
+  },
+  {
+    "id": 29,
+    "date": "2025-10-12",
+    "description": "Coffee",
+    "category": "Food",
+    "type": "Expense",
+    "amount": 8.1
+  },
+  {
+    "id": 30,
+    "date": "2025-10-13",
+    "description": "Bus pass recharge",
+    "category": "Transport",
+    "type": "Expense",
+    "amount": 25
+  },
+  {
+    "id": 31,
+    "date": "2025-10-15",
+    "description": "Mobile accessories",
+    "category": "Shopping",
+    "type": "Expense",
+    "amount": 14.9
+  },
+  {
+    "id": 32,
+    "date": "2025-10-17",
+    "description": "Electricity Bill",
+    "category": "Bills",
+    "type": "Expense",
+    "amount": 92.3
+  },
+  {
+    "id": 33,
+    "date": "2025-10-18",
+    "description": "Salary",
+    "category": "Salary",
+    "type": "Credit",
+    "amount": 3000
+  },
+  {
+    "id": 34,
+    "date": "2025-10-20",
+    "description": "Snacks",
+    "category": "Food",
+    "type": "Expense",
+    "amount": 5.8
+  },
+  {
+    "id": 35,
+    "date": "2025-10-22",
+    "description": "Restaurant dinner",
+    "category": "Food",
+    "type": "Expense",
+    "amount": 31.5
+  },
+  {
+    "id": 36,
+    "date": "2025-10-24",
+    "description": "New headphones",
+    "category": "Shopping",
+    "type": "Expense",
+    "amount": 89.9
+  },
+  {
+    "id": 37,
+    "date": "2025-10-26",
+    "description": "Vegetables",
+    "category": "Food",
+    "type": "Expense",
+    "amount": 12.3
+  },
+  {
+    "id": 38,
+    "date": "2025-10-28",
+    "description": "Movie streaming",
+    "category": "Entertainment",
+    "type": "Expense",
+    "amount": 8.99
+  },
+  {
+    "id": 39,
+    "date": "2025-10-30",
+    "description": "Online freelance payout",
+    "category": "Freelance",
+    "type": "Credit",
+    "amount": 380
+  },
+  {
+    "id": 40,
+    "date": "2025-11-01",
+    "description": "Groceries",
+    "category": "Food",
+    "type": "Expense",
+    "amount": 44.5
+  },
+  {
+    "id": 41,
+    "date": "2025-11-03",
+    "description": "Internet bill",
+    "category": "Bills",
+    "type": "Expense",
+    "amount": 35
+  },
+  {
+    "id": 42,
+    "date": "2025-11-05",
+    "description": "Doctor visit",
+    "category": "Health",
+    "type": "Expense",
+    "amount": 65
+  },
+  {
+    "id": 43,
+    "date": "2025-11-07",
+    "description": "Fuel refill",
+    "category": "Transport",
+    "type": "Expense",
+    "amount": 52.8
+  },
+  {
+    "id": 44,
+    "date": "2025-11-08",
+    "description": "Office reimbursement",
+    "category": "Other",
+    "type": "Credit",
+    "amount": 120
+  },
+  {
+    "id": 45,
+    "date": "2025-11-10",
+    "description": "Dinner with friends",
+    "category": "Food",
+    "type": "Expense",
+    "amount": 36.2
+  },
+  {
+    "id": 46,
+    "date": "2025-11-12",
+    "description": "Streaming subscription",
+    "category": "Entertainment",
+    "type": "Expense",
+    "amount": 9.5
+  },
+  {
+    "id": 47,
+    "date": "2025-11-14",
+    "description": "Phone bill",
+    "category": "Bills",
+    "type": "Expense",
+    "amount": 22
+  },
+  {
+    "id": 48,
+    "date": "2025-11-16",
+    "description": "Gym fee",
+    "category": "Health",
+    "type": "Expense",
+    "amount": 55
+  },
+  {
+    "id": 49,
+    "date": "2025-11-18",
+    "description": "Freelance payment",
+    "category": "Freelance",
+    "type": "Credit",
+    "amount": 500
+  },
+  {
+    "id": 50,
+    "date": "2025-11-18",
+    "description": "Groceries",
+    "category": "Food",
+    "type": "Expense",
+    "amount": 38.4
+  }
+]
